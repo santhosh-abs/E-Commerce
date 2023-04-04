@@ -5,8 +5,10 @@ import Slider from '../pages/slider';
 import Product from '../pages/product';
 import Cart from '../pages/cart';
 import NoCart from '../pages/nocart';
-import NoWishlist from '../pages/wishlist';
-import NoCompare from '../pages/nocompare'
+import NoWishlist from '../pages/nowishlist';
+import NoCompare from '../pages/nocompare';
+import NoCheckout from '../pages/nocheckout';
+import Checkout from '../pages/checkout';
 // import '../App.css'
 
 const Header = ()=> {
@@ -97,6 +99,7 @@ const Header = ()=> {
                     <Route path='/cart' element={(x === 0) ? <NoCart/> : <Cart/>}/>
                     <Route path='/wishlist' element={<NoWishlist/>}/>
                     <Route path='/compare' element={<NoCompare/>}/>
+                    <Route path='/checkout' element={(x === 0) ? <NoCheckout/> : <Checkout/>} />
                 </Routes>
             </div>
         </>

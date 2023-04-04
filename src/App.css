@@ -338,11 +338,88 @@ td i:hover{
     border: none;
     font-size: 14px;
     font-weight: 500;
-    padding: 10px 30px;
+    padding: 19px 50px;
     transition: 0.3s;
 }
 .no-items button:hover{
     background-color: #a749ff;
+}
+
+/* ---------------------------------- checkout css ----------------------------------------- */
+
+.checkout-details{
+    display: flex;
+    margin: 40px 282px;
+    justify-content: space-between;
+
+}
+.checkout-details p{
+    margin: 0;
+}
+.checkout-details input, select{
+    border: 1px solid #e6e6e6;
+    background: transparent;
+    padding: 10px 10px;
+    outline: none;
+    font-size: 14px;
+    color: #000;
+    margin: 10px 0px ;
+}
+.name{
+    display: flex;
+    gap: 50px;
+}
+.name-input{
+    display: flex;
+    flex-grow: 2;
+    flex-direction: column;
+}
+.checkout{
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+    width: 676px;
+}
+.product-total{
+    background-color: #f6f6f6;
+    padding: 38px 45px 44px;
+}
+.total-head{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #dee0e4;
+    /* border-top: 1px solid #dee0e4;  */
+    margin: 18px 0;
+    padding: 17px 0 19px;
+}
+.order-details{
+    padding: 10px 20px;
+}
+.order-details button{
+    background: none;
+    background-color: #a749ff;
+    border: none;
+    border-radius: 50px;
+    color: #fff;
+    font-weight: 500;
+    padding: 18px 20px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+}
+.order-details button:hover{
+    background-color: #000;
+}
+.place-order{
+    margin: 30px 0px 0px;
+}
+textarea{
+    background: transparent none repeat scroll 0 0;
+    border: 1px solid #e6e6e6;
+    color: #333;
+    font-size: 14px;
+    height: 138px;
+    padding: 17px 20px;
 }
 
 

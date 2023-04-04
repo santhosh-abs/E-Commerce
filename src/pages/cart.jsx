@@ -8,7 +8,7 @@ const Cart = ()=> {
     
 
     const quantityPlus = ()=>{
-        if (x === 1){
+        if (x >= 1){
             setQuantity(quantity + 1)
         }
     }
@@ -19,6 +19,8 @@ const Cart = ()=> {
     }
 
 
+    const y = quantity * 2.79;
+    console.log(y)
     return (
         <>
             <div className='home-cart'>
@@ -47,14 +49,14 @@ const Cart = ()=> {
                                     <button onClick={ quantityPlus}>+</button>
                                 </div>
                             </td>
-                            <td>$2.79</td>
+                            <td>${y} </td>
                             <td><i className='pe-7s-close'></i></td>
                         </tr>
                     </tbody>
                 </table>
                 <div className='shopping'>
                     <button>CONTINUE SHOPPING</button>
-                    <button>CLEAR SHOPPING CART</button>
+                    <button >CLEAR SHOPPING CART</button>
                 </div>
             </div>
             
@@ -92,11 +94,11 @@ const Cart = ()=> {
                     <h3>Cart Total</h3>
                     <div className='p-total'>
                         <p>Total products</p>
-                        <p>$2.79</p>
+                        <p>{y}</p>
                     </div>
                     <div className='g-total'>
                         <p>Grand Total</p>
-                        <p>$2.79</p>
+                        <p>{y}</p>
                     </div>
                     <button>PROCEED TO CHECKOUT</button>
                 </div>
