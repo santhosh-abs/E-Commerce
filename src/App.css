@@ -1,38 +1,611 @@
-.App {
-  text-align: center;
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 50px;
+    position: sticky;
+    top: 0px;
+    z-index: 10;
+    background-color: white;
+    border-bottom: 1px solid #f6f6f8;
+    box-shadow: #bababb;
+}
+.header-img{
+    width: 200px;
+    height: 89px;
+    display: flex;
+    align-items: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header-menu{
+    display: flex;
+    justify-content: space-between;
+}
+.header-menu p{
+    padding: 10px;
+    margin: 0;
+}
+.header-menu i{
+    padding: 0;
+}
+.para{
+    display: flex;
+}
+.icon button{
+    font-size: 20px;
+    padding-left: 20px;
+    border: none;
+    background: transparent;
+}
+a:hover{
+    color: blueviolet;
+}
+.icon{
+    display: flex;
+}
+.icon button:hover{
+    color: blueviolet;
+}
+.shuffle{
+    position: relative;
+}
+.shuffle span{
+    background-color: #000;
+    border-radius: 100%;
+    color: #fff;
+    display: inline-block;
+    font-size: 12px;
+    height: 21px;
+    line-height: 21px;
+    position: absolute;
+    right: -8px;
+    text-align: center;
+    top: -10px;
+    width: 21px;
+}
+.like{
+    position: relative;
+}
+.like span{
+    background-color: #000;
+    border-radius: 100%;
+    color: #fff;
+    display: inline-block;
+    font-size: 12px;
+    height: 21px;
+    line-height: 21px;
+    position: absolute;
+    right: -8px;
+    text-align: center;
+    top: -10px;
+    width: 21px;
+}
+.bag{
+    position: relative;
+}
+.cart-card{
+    position: absolute;
+    right: 40px;
+    top: 110px;
+}
+.bag span{
+    background-color: #000;
+    border-radius: 100%;
+    color: #fff;
+    display: inline-block;
+    font-size: 12px;
+    height: 21px;
+    line-height: 21px;
+    position: absolute;
+    right: -8px;
+    text-align: center;
+    top: -10px;
+    width: 21px;
+}
+button{
+    cursor: pointer;
+}
+a{
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+}
+/* ---------------------------------- cart css ----------------------------------------- */
+
+.cart-items{
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #ebebeb;
+    border-radius: 5px ;
+    width: 268px;
+    height: 367px;
+    padding: 10px 35px;
+}
+.cart-no-items{
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #ebebeb;
+    border-radius: 5px ;
+    width: 268px;
+    text-align: center;
+    padding: 10px 35px;
+}
+.cart-items img{
+    width: 89px;
+    height: 109px;
+}
+.cart-total{
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 0px 10px;
+}
+.bag-items{
+    display: flex;
+    column-gap: 10px;
+    padding: 20px 0px;
+    border-bottom: 1px solid #d3d0d0;
+    align-items: flex-start;
+}
+.bag-items button{
+    background-color: #a749ff;
+    border-radius: 100%;
+    padding: 0;
+    color: white;
+    font-weight: 900;
+}
+.bag-items button:hover{
+    background-color: #000;
+    color: white;
+}
+.bag-items p{
+    margin: 0px 0px 10px;
+}
+.cart-btn button{
+    background: transparent;
+    padding: 19px 50px;
+    margin: 0px 0px 20px;
+    border:1px solid black;
+}
+.cart-btn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+.cart-table{
+    display: flex;
+    flex-direction: column;
+    margin: 0px 282px;
+}
+table{
+    padding: 0px 0px 30px;
+    border: 1px solid #ebebeb;
+    border-collapse: collapse;
+}
+.cart-table h3{
+    font-size: 20px;
+    font-weight: 500;
+}
+.tax{
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9f9;
+    border: 1px solid #ebebeb;
+    border-radius: 8px;
+    padding: 45px 30px 50px;
+}
+.destination{
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 0px;
+    margin: 0px 282px;
+}
+.destination select{
+    padding: 10px;
+    border: 1px solid #ebebeb;
+    margin: 10px 0px 20px;
+    outline: none;
+}
+option{
+    background-color: white;
+}
+.destination button{
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: white;
+    padding: 20px 50px;
+    border-radius: 50px;
+    background: #a749ff;
+    border: none;
+}
+.destination button:hover{
+    background-color: black;
+}
+.destination input{
+    padding: 10px;
+    margin: 10px 0px 20px;
+}
+.cupon{
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9f9;
+    border: 1px solid #ebebeb;
+    border-radius: 8px;
+    padding: 45px 30px 50px;
+    height: fit-content;
+}
+.zip{
+    background-color: rgb(255, 255, 255);
+}
+.cupon input{
+    background-color: rgb(255, 255, 255);
+}
+.check-out{
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9f9;
+    border: 1px solid #ebebeb;
+    border-radius: 8px;
+    padding: 45px 30px 50px;
+    height: fit-content;
+}
+.shopping{
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 0px 0px;
+}
+.shopping button{
+    padding: 20px 50px;
+    border-radius: 50px;
+    border: none;
+}
+.shopping button:hover{
+    background-color: #a749ff;
+    color: white;
+}
+.p-total{
+    display: flex;
+    justify-content: space-between;
+}
+.g-total{
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: 500;
+    color: #a749ff;
+}
+.home-cart{
+    background-color: #f7f7f7;
+    padding: 25px 0px;
+    font-size: 15px;
+    text-align: center;
+}
+thead{
+    background-color: #f7f7f7;
+}
+thead th{
+    padding: 21px 45px;
+    font-size: 14px;
+    font-weight: 500;
+}
+tbody img{
+    width: 108px;
+    height: 144px;
+    vertical-align: middle;
+}
+.qty{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.qty button{
+    padding: 10px;
+    background: none;
+    border: 1px solid #ebebeb;
+    outline: none;
+}
+.qty p{
+    padding: 10px 30px;
+    margin: 0;
+    border: 1px solid #ebebeb;
+}
+tr{
+    border-bottom:1px solid #ebebeb; ;
+}
+tr td{
+    padding: 30px 0px 30px 30px;
+    text-align: center;
+}
+td i{
+    font-size: 24px;
+}
+td i:hover{
+    font-weight: 900;
+    color: #a749ff;
+}
+.no-items{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 0px;
+}
+.no-items i{
+    font-size: 140px;
+}
+.no-items button{
+    background-color: #363f4d;
+    color: white;
+    border: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 30px;
+    transition: 0.3s;
+}
+.no-items button:hover{
+    background-color: #a749ff;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+
+/* ---------------------------------- slider css ----------------------------------------- */
+
+.slider{
+    position: relative;
+}
+.slider img{
+    width: 100%;
+}
+.img-text{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 30%;
+    left: 50%;
+    animation-name: fade;
+}
+.img-text span{
+    font-size: 72px;
+    margin: 0;
+}
+.img-text button{
+    background: transparent;
+    padding: 19px 50px;
+}
+.img-text h2:before {
+    background-color: #000;
+    content: "";
+    height: 2px;
+    left: 150px;
+    position: absolute;
+    top: 14px;
+    width: 80px;
+}
+.img-text h2:after {
+    background-color: #000;
+    content: "";
+    height: 2px;
+    position: absolute;
+    right: 150px;
+    top: 14px;
+    width: 80px;
+}
+.support{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 50px 0px;
+}
+.support div{
+    padding: 10px 30px;
+    width: 18%;
+}
+.support div:hover img{
+    animation: shake 0.5s;
+}
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
   }
+
+/* ---------------------------------- product css ----------------------------------------- */
+
+.product{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    gap: 10px;
+    padding: 10px 50px;
+}
+.product img{
+    width: 272px;
+    height: 362px;
+}
+.product-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+.product-card p{
+    margin-bottom: 0;
+}
+.product-card h4{
+    margin-top: 5px;
+}
+.heart:hover{
+    color: blueviolet ;
+}
+.heart{
+    padding:0px 10px 0px 0px;
+    font-size: 20px;
+}
+.card-top{
+    position: absolute;
+    right: 50px;
+    color: #a749ff;
+}
+.card-top p{
+    color: #fa6bff;
+}
+.card-icon{
+    position: absolute;
+    top: 40%;
+    left: 80px;
+    visibility: hidden;
+}
+.product-card:hover .card-icon{
+    visibility: visible;
+}
+.card-icon button{
+    background-color: #a749ff;
+    border: none;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.card-icon i{
+    padding: 10px;
+    color: white;
+    font-size: 24px;
+    fill: white;
+}
+.card-footer{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.card-footer p{
+    padding: 0px 20px 0px 0px;
+    margin: 0;
+}
+del{
+    color: #fa6bff;
+}
+.arrival{
+    padding: 30px 0px;
+}
+.arrival h2:before{
+    background-color: #000;
+    content: "";
+    height: 2px;
+    left: 720px;
+    position: absolute;
+    top: 14px;
+    width: 80px;
+}
+.arrival h2:after{
+    background-color: #000;
+    content: "";
+    height: 2px;
+    right: 720px;
+    position: absolute;
+    top: 14px;
+    width: 80px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+
+/* ---------------------------------- blog css ----------------------------------------- */
+
+.head{
+    padding: 30px 0px;
+}
+.blog{
+    padding: 0px 0px 100px;
+ }
+h2{
+    position: relative;
+    text-align: center;
+}
+h2:before {
+    background-color: #000;
+    content: "";
+    height: 2px;
+    left: 750px;
+    position: absolute;
+    top: 14px;
+    width: 80px;
+}
+h2:after {
+    background-color: #000;
+    content: "";
+    height: 2px;
+    position: absolute;
+    right: 750px;
+    top: 14px;
+    width: 80px;
+}
+.blog-img{
+    display: flex;
+    justify-content: center;
+}
+.blog-img img{
+    padding: 0px 20px;
+    transition: 0.5s;
+}
+.head-img{
+    position: relative;
+}
+.head-img:hover img{
+    transform: scale(1.1);
+}
+.span{
+    position: absolute;
+    top: 10px;
+    left: 30px;
+}
+.span span{
+    padding: 2px 8px;
+    background-color: #a749ff;
+    color: white;
+}
+.men{
+    margin-left: 20px;
+}
+.admin{
+    position: absolute;
+    text-align: center;
+    background-color: #ffff;
+    padding: 5px 60px;
+    width: 40%;
+    bottom: -60px;
+    left: 60px;
+}
+.admin h4:hover{
+    color: blueviolet;
 }
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+/* ---------------------------------- footer css ----------------------------------------- */
+
+.footer{
+    background-color: #f6f6f8;
+    display: flex;
+    justify-content: center;
+    padding: 100px 0px 40px;
+    /* position: sticky;
+    bottom: 0px; */
+}
+input{
+    border: none;
+    border-bottom: 2px solid #ebebeb;
+    background: transparent;
+    outline: none;
+    font-size: 13px;
+    padding: 2px 10px 2px 0px;
+}
+.footer-logo{
+    align-self: center;
+    padding: 0px 40px;
+}
+.footer-bar{
+    padding: 0px 40px;
 }
