@@ -170,6 +170,9 @@ a{
     justify-content: center;
     text-align: center;
 }
+.cart-btn a{
+    display: grid;
+}
 .cart-table{
     display: flex;
     flex-direction: column;
@@ -367,7 +370,7 @@ td i:hover{
 }
 .name{
     display: flex;
-    gap: 50px;
+    gap: 40px;
 }
 .name-input{
     display: flex;
@@ -383,6 +386,7 @@ td i:hover{
 .product-total{
     background-color: #f6f6f6;
     padding: 38px 45px 44px;
+    width: 386px;
 }
 .total-head{
     display: flex;
@@ -401,7 +405,7 @@ td i:hover{
     border: none;
     border-radius: 50px;
     color: #fff;
-    font-weight: 500;
+    font-weight: 900;
     padding: 18px 20px;
     text-align: center;
     text-transform: uppercase;
@@ -547,6 +551,9 @@ textarea{
     border-radius: 50%;
     margin-right: 10px;
 }
+.card-icon button:active{
+    background-color: #fa6bff;
+}
 .card-icon i{
     padding: 10px;
     color: white;
@@ -586,7 +593,9 @@ del{
     top: 14px;
     width: 80px;
 }
-
+button:disabled{
+    cursor: not-allowed;
+}
 
 
 /* ---------------------------------- blog css ----------------------------------------- */

@@ -1,6 +1,5 @@
-import React,{ useContext, useState }  from 'react'
+import React,{ useState, useContext }  from 'react'
 import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
-import { MyContext } from '../pages/product';
 import Slider from '../pages/slider';
 import Product from '../pages/product';
 import Cart from '../pages/cart';
@@ -9,11 +8,20 @@ import NoWishlist from '../pages/nowishlist';
 import NoCompare from '../pages/nocompare';
 import NoCheckout from '../pages/nocheckout';
 import Checkout from '../pages/checkout';
+import { AppContext } from '../App'
 // import '../App.css'
 
 const Header = ()=> {
     const [show, setShow] = useState(false)
-    const x = useContext(MyContext);
+    const [cart, setCart] = useContext(AppContext);
+
+    const removeFromCart = (id)=> {
+        setCart({
+            count: cart.count = 0,
+            items: cart.items.filter((item)=>item.id !== id),
+            itemIds: cart.itemIds.filter((item)=>item !== id),
+        })
+    }
     return(
         <Router>
         <>
@@ -56,11 +64,11 @@ const Header = ()=> {
                     </div>
                     <div className='full-bag'>
                        
-                    <button onClick={()=> setShow(!show)} className="pe-7s-shopbag bag"><span>{x}</span></button>
+                    <button onClick={()=> setShow(!show)} className="pe-7s-shopbag bag"><span>{cart.count}</span></button>
                     
                     { show && 
                         <div className='cart-card'>
-                            {(x === 0) ? <div className='cart-no-items'>No items added to cart</div> :
+                            {(cart.count === 0) ? <div className='cart-no-items'>No items added to cart</div> :
                             <div className='cart-items'>
                                 <div className='bag-items'>
                                     <img src='/images/1.jpg' alt=''/>
@@ -69,7 +77,7 @@ const Header = ()=> {
                                         <p>Qty:</p>
                                         <p>$2.79</p>
                                     </div>
-                                    <button className='pe-7s-close'></button>
+                                    <button onClick={()=>removeFromCart()} className='pe-7s-close'></button>
                                 </div>
                                 <div className='cart-total'>
                                     <p>Total :</p>
@@ -96,10 +104,10 @@ const Header = ()=> {
                 <Routes>
                     <Route path='/home' element={<Slider/>} />
                     <Route path='/shop' element={<Product></Product>}/>
-                    <Route path='/cart' element={(x === 0) ? <NoCart/> : <Cart/>}/>
+                    <Route path='/cart' element={(cart.count === 0) ? <NoCart/> : <Cart/>}/>
                     <Route path='/wishlist' element={<NoWishlist/>}/>
                     <Route path='/compare' element={<NoCompare/>}/>
-                    <Route path='/checkout' element={(x === 0) ? <NoCheckout/> : <Checkout/>} />
+                    <Route path='/checkout' element={(cart.count === 0) ? <NoCheckout/> : <Checkout/>} />
                 </Routes>
             </div>
         </>

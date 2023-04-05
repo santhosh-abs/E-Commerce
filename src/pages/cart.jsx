@@ -1,14 +1,14 @@
 import React, { useState, useContext  } from 'react';
-import { MyContext } from './product';
+import { AppContext } from '../App';
 
 const Cart = ()=> {
-    const x = useContext(MyContext) 
+    const [cart, setCart] = useContext(AppContext);
 
     const [quantity, setQuantity] = useState(1)
-    
+
 
     const quantityPlus = ()=>{
-        if (x >= 1){
+        if (cart.count >= 1){
             setQuantity(quantity + 1)
         }
     }

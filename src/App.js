@@ -1,17 +1,25 @@
+import React, { createContext, useState } from 'react'
 import Header from "./components/Header";
-import Product from "./pages/product";
+import Footer from "./components/Footer";
 import './App.css'
 
-import Footer from "./components/Footer";
+const initialValue = {
+  count: 0,
+  items: [],
+  itemIds: []
+}
 
-function App() {
+export const AppContext = createContext([initialValue, () => {}]);
+
+function App(props) {
+  const [cart, setCart] = useState(initialValue)
   return (
     <div className="">
-
-      <Product>
-        <Header />
-        <Footer/>
-      </Product>
+        <AppContext.Provider value={[cart, setCart]}>
+          {props.children}
+          <Header />
+          <Footer/>
+      </AppContext.Provider>
     </div>
   );
 }

@@ -1,59 +1,47 @@
-import React,{ createContext, useState } from 'react'
+import React,{ useContext } from 'react'
+import { AppContext } from '../App'
 
-export const MyContext = createContext();
 
-const Product = (props)=> {
-    const [cartItems, setCartItems] = useState(0);
+const Product = ()=> {
+    const [cart, setCart] = useContext(AppContext);
 
-    const addToCart = ()=> {
-        setCartItems(cartItems + 1 )
+    const addToCart = (data)=> {
+        setCart({
+            count: cart.count + 1,
+            items: [...cart.items, data],
+            itemIds: [...cart.itemIds, data.id],
+        })
 
     }
-    const removeFromCart = ()=> {
-        if(0 < cartItems){
-            setCartItems(cartItems - 1)
-        }
-    }
+    // const removeFromCart = (id)=> {
+    //     setCart({
+    //         count: cart.count - 1,
+    //         items: cart.items.filter((item)=>item.id !== id),
+    //         itemIds: cart.itemIds.filter((item)=>item !== id),
+    //     })
+    // }
     
     const product = [
-        {
+        {   
+            id: '1',
             img: <img src="/images/1.jpg" alt=""/>,
-            icon: [
-                {
-                    btn:<i className="pe-7s-cart"></i>,
-                    btn1:<i className="pe-7s-glasses"></i>,
-                    btn2: <i className="pe-7s-repeat"></i>
-                },
-            ],
             percent:'-10%',
             new: 'New',
             para:'Lorem ipsum accessories one',
             price:<span>$2.79 <del>$3.1</del></span>,
             heart:<i className="pe-7s-like"></i>,
         },
-        {
+        {   
+            id:'2',
             img: <img src="/images/2.jpg" alt=""/>,
-            icon: [
-                {
-                    btn:<i className="pe-7s-cart"></i>,
-                    btn1:<i className="pe-7s-glasses"></i>,
-                    btn2: <i className="pe-7s-repeat"></i>
-                },
-            ],
             new: 'New',
             para:'Lorem ipsum accessories one',
             price:<span>$2.79</span>,
             heart:<i className="pe-7s-like"></i>,
         },
         {
+            id:'3',
             img: <img src="/images/3.jpg" alt=""/>,
-            icon: [
-                {
-                    btn:<i className="pe-7s-cart"></i>,
-                    btn1:<i className="pe-7s-glasses"></i>,
-                    btn2: <i className="pe-7s-repeat"></i>
-                },
-            ],
             percent:'-20%',
             new: 'New',
             para:'Lorem ipsum accessories one',
@@ -61,14 +49,9 @@ const Product = (props)=> {
             heart:<i className="pe-7s-like"></i>,
         },
         {
+            
+            id:'4',
             img: <img src="/images/12.jpg" alt=""/>,
-            icon: [
-                {
-                    btn:<i className="pe-7s-cart"></i>,
-                    btn1:<i className="pe-7s-glasses"></i>,
-                    btn2: <i className="pe-7s-repeat"></i>
-                },
-            ],
             percent:'-20%',
             new: 'New',
             para:'Lorem ipsum accessories one',
@@ -76,14 +59,8 @@ const Product = (props)=> {
             heart:<i className="pe-7s-like"></i>,
         },
         {
-            img: <img src="/images/5.jpg" alt=""/>,
-            icon: [
-                {
-                    btn:<i className="pe-7s-cart"></i>,
-                    btn1:<i className="pe-7s-glasses"></i>,
-                    btn2: <i className="pe-7s-repeat"></i>
-                },
-            ],
+            id:'5',
+            img: <img src="/images/5.jpg" alt=""/>,  
             percent:'-10%',
             new: 'New',
             para:'Lorem ipsum accessories one',
@@ -91,14 +68,8 @@ const Product = (props)=> {
             heart:<i className="pe-7s-like"></i>,
         },
         {
-            img: <img src="/images/6.jpg" alt=""/>,
-            icon: [
-                {
-                    btn:<i className="pe-7s-cart"></i>,
-                    btn1:<i className="pe-7s-glasses"></i>,
-                    btn2: <i className="pe-7s-repeat"></i>
-                },
-            ],
+            id:'6',
+            img: <img src="/images/6.jpg" alt=""/>,  
             percent:'-30%',
             new: 'New',
             para:'Lorem ipsum accessories one',
@@ -106,14 +77,8 @@ const Product = (props)=> {
             heart:<i className="pe-7s-like"></i>,
         },
         {
-            img: <img src="/images/7.jpg" alt=""/>,
-            icon: [
-                {
-                    btn:<i className="pe-7s-cart"></i>,
-                    btn1:<i className="pe-7s-glasses"></i>,
-                    btn2: <i className="pe-7s-repeat"></i>
-                },
-            ],
+            id:'7',
+            img: <img src="/images/7.jpg" alt=""/>,  
             percent:'-30%',
             new: 'New',
             para:'Lorem ipsum accessories one',
@@ -121,28 +86,16 @@ const Product = (props)=> {
             heart:<i className="pe-7s-like"></i>,
         },
         {
-            img: <img src="/images/8.jpg" alt=""/>,
-            icon: [
-                {
-                    btn:<i className="pe-7s-cart"></i>,
-                    btn1:<i className="pe-7s-glasses"></i>,
-                    btn2: <i className="pe-7s-repeat"></i>
-                },
-            ],
+            id:'8',
+            img: <img src="/images/8.jpg" alt=""/>,  
             new: 'New',
             para:'Lorem ipsum accessories one',
             price:<span>$2.79</span>,
             heart:<i className="pe-7s-like"></i>,
         },
         {
-            img: <img src="/images/9.jpg" alt=""/>,
-            icon: [
-                {
-                    btn:<i className="pe-7s-cart"></i>,
-                    btn1:<i className="pe-7s-glasses"></i>,
-                    btn2: <i className="pe-7s-repeat"></i>
-                },
-            ],
+            id:'9',
+            img: <img src="/images/9.jpg" alt=""/>,  
             percent:'-20%',
             new: 'New',
             para:'Lorem ipsum accessories one',
@@ -150,14 +103,8 @@ const Product = (props)=> {
             heart:<i className="pe-7s-like"></i>,
         },
         {
-            img: <img src="/images/11.jpg" alt=""/>,
-            icon: [
-                {
-                    btn:<i className="pe-7s-cart"></i>,
-                    btn1:<i className="pe-7s-glasses"></i>,
-                    btn2: <i className="pe-7s-repeat"></i>
-                },
-            ],
+            id:'10',
+            img: <img src="/images/11.jpg" alt=""/>,  
             new: 'New',
             para:'Lorem ipsum accessories one',
             price:<span>$2.79</span>,
@@ -166,31 +113,31 @@ const Product = (props)=> {
     ]
     return(
         <>
-        <MyContext.Provider value={cartItems}>
-            {props.children}
-        </MyContext.Provider>
             <div className='arrival'>
                 <h2>NEW ARRIVAl</h2> 
             </div>
             <div className="product">
-                {product.map((item, index)=> {
+                {product.map((item, id)=> {
                     return(
-                    <div key={index} className="product-card">
+                    <div key={id} className="product-card">
                         {item.img}
                         <div className="card-top">
                             <p>{item.percent}</p>
                             <span>{item.new}</span>
                         </div>
                         <div className="card-icon">
-                            {item.icon.map((item, index)=> {
-                                return(
-                                <div key={index}>
-                                    <button onClick={addToCart} >{item.btn}</button>
-                                    <button onClick={removeFromCart} >{item.btn1}</button>
-                                    <button>{item.btn2}</button>
-                                </div>
-                            )
-                        })}
+                            <div >
+                                <button onClick={()=>addToCart(item)} 
+                                 className={ cart.itemIds.includes(item.id) ? "btn-disable" : "" }>
+                                    <i className="pe-7s-cart"></i>
+                                </button>
+                                <button /* onClick={()=>removeFromCart(item.id)} */>
+                                    <i className="pe-7s-glasses"></i>
+                                </button>
+                                <button>
+                                    <i className="pe-7s-repeat"></i>
+                                </button>
+                            </div>
                         </div>
                         <div className="card-footer">
                             <div>
